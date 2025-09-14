@@ -1,13 +1,13 @@
 <template>
   <div
-    class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+    class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
   >
     <header class="bg-black/20 backdrop-blur-lg border-b border-white/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div class="flex items-center justify-between space-x-3">
           <div class="flex items-center space-x-3">
             <div
-              class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"
+              class="w-10 h-10 bg-gradient-to-r from-blue-500 to-pink-500 rounded-lg flex items-center justify-center"
             >
               <Icon name="mdi:brain" class="text-white text-xl" />
             </div>

@@ -1,26 +1,26 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+  <div class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
     <!-- Mobile sidebar overlay -->
     <div 
-      v-if="sidebarOpen" 
+      v-if="dashboardStore.sidebarOpen" 
       class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-      @click="sidebarOpen = false"
-    ></div>
+      @click="dashboardStore.closeSidebar"
+    />
     
     <!-- Sidebar -->
     <UiSidebar 
-      :open="sidebarOpen" 
-      :active-tab="activeTab"
-      @update:activeTab="activeTab = $event"
-      @close="sidebarOpen = false"
+      :open="dashboardStore.sidebarOpen" 
+      :active-tab="dashboardStore.activeTab"
+      @update:active-tab="dashboardStore.setActiveTab"
+      @close="dashboardStore.closeSidebar"
     />
     
     <!-- Main content -->
     <div class="lg:pl-64 flex flex-col min-h-screen">
       <!-- Header -->
       <UiHeader 
-        @toggle-sidebar="sidebarOpen = !sidebarOpen"
         :notifications="3"
+        @toggle-sidebar="dashboardStore.toggleSidebar"
       />
       
       <!-- Main content area -->
@@ -32,10 +32,6 @@
 </template>
 
 <script setup>
-const sidebarOpen = ref(false)
-const activeTab = ref('overview')
-
-// Provide active tab to child components
-provide('activeTab', activeTab)
-provide('sidebarOpen', sidebarOpen)
+// Use dashboard store for state management
+const dashboardStore = useDashboardStore()
 </script>
